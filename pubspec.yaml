@@ -1,6 +1,7 @@
 name: data_state
 description: A simple package to encapsulate the state of data (loading, loaded, exists, not exists)
 version: 0.0.1
+homepage: https://github.com/cedvdb/data_state
 
 environment:
   sdk: '>=2.14.4 <3.0.0'
