@@ -1,4 +1,4 @@
-import 'package:datastate/datastate.dart';
+import 'package:my_data_state/my_data_state.dart';
 import 'package:test/test.dart';
 
 void main() {
