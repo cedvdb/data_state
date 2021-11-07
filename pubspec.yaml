@@ -1,4 +1,4 @@
-name: data_state
+name: datastate
 description: A simple package to encapsulate the state of data (loading, loaded, exists, not exists)
 version: 0.0.1
 homepage: https://github.com/cedvdb/data_state

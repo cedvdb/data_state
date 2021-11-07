@@ -1,4 +1,4 @@
-import 'package:data_state/data_state.dart';
+import 'package:datastate/datastate.dart';
 
 void main() {
   const loading = DataStateLoading();
