@@ -3,11 +3,6 @@ import 'package:test/test.dart';
 
 void main() {
   group('DataState', () {
-    test('should create loading', () {
-      expect(DataState.loading(), isA<DataStateLoading>());
-      expect(DataState.loading(), equals(DataState.loading()));
-    });
-
     test('should create loaded, exists', () {
       expect(DataState.loaded(20), isA<DataStateLoaded>());
       expect(DataState.loaded(20), isA<DataStateExists>());
