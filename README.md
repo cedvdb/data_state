@@ -3,10 +3,10 @@ DataState is a micro library to represent the state of data.
 It contains the following classes:
 
   - DataState (abstract)
-    - DataStateLoading
-    - DataStateLoaded
-       - DateStateExists
-       - DateStateNotExist
+    - DataLoading
+    - DataLoaded (abstract)
+       - DateExists
+       - DateNotExist
 
 
 # Usage:
@@ -14,14 +14,14 @@ It contains the following classes:
 ```dart
 
 void main() {
-  const loading = DataStateLoading();
+  const loading = DataLoading();
   print(loading);
   final loaded = DataState.loaded(3);
-  print(loaded is DataStateExists);
+  print(loaded is DataExists);
   print(loaded.data); // 3
   final notExist = DataState.loaded(null);
   final notExistList = DataState.loaded([]);
-  print(notExist is DataStateNotExists);
-  print(notExistList is DataStateNotExists);
+  print(notExist is DataNotExists);
+  print(notExistList is DataNotExists);
 }
 ```

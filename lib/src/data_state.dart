@@ -1,35 +1,40 @@
 abstract class DataState<T> {
-  final T? data;
-  const DataState([this.data]);
+  T? get data;
+  const DataState();
 
   factory DataState.loaded(T? data) {
     if (data == null || (data is List && data.isEmpty)) {
-      return const DataStateNotExists();
+      return const DataNotExists();
     }
-    return DataStateExists(data);
+    return DataExists(data);
   }
 }
 
-class DataStateLoading<T> extends DataState<T> {
-  const DataStateLoading([T? data]) : super(data);
-}
-
-class DataStateError<T> extends DataState<T> {
-  final Error error;
-  const DataStateError(this.error);
-}
-
-abstract class DataStateLoaded<T> extends DataState<T> {
-  const DataStateLoaded();
-}
-
-class DataStateNotExists<T> extends DataStateLoaded<T> {
-  const DataStateNotExists();
-}
-
-class DataStateExists<T> extends DataStateLoaded<T> {
+class DataLoading<T> extends DataState<T> {
   @override
-  // ignore: overridden_fields
+  final T? data;
+  const DataLoading([this.data]);
+}
+
+class DataError<T> extends DataState<T> {
+  @override
+  final T? data;
+  final Error error;
+  const DataError(this.error, [this.data]);
+}
+
+abstract class DataLoaded<T> extends DataState<T> {
+  const DataLoaded();
+}
+
+class DataNotExists<T> extends DataLoaded<T> {
+  @override
+  final T? data = null;
+  const DataNotExists();
+}
+
+class DataExists<T> extends DataLoaded<T> {
+  @override
   final T data;
-  const DataStateExists(this.data);
+  const DataExists(this.data);
 }

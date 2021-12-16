@@ -1,13 +1,13 @@
 import 'package:my_data_state/my_data_state.dart';
 
 void main() {
-  const loading = DataStateLoading();
+  const loading = DataLoading();
   print(loading);
   final loaded = DataState.loaded(3);
   print(loaded.data);
-  print(loaded is DataStateExists);
+  print(loaded is DataExists);
   final notExist = DataState.loaded(null);
   final notExistList = DataState.loaded([]);
-  print(notExist is DataStateNotExists);
-  print(notExistList is DataStateNotExists);
+  print(notExist is DataNotExists);
+  print(notExistList is DataNotExists);
 }

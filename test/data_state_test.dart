@@ -4,15 +4,15 @@ import 'package:test/test.dart';
 void main() {
   group('DataState', () {
     test('should create loaded, exists', () {
-      expect(DataState.loaded(20), isA<DataStateLoaded>());
-      expect(DataState.loaded(20), isA<DataStateExists>());
+      expect(DataState.loaded(20), isA<DataLoaded>());
+      expect(DataState.loaded(20), isA<DataExists>());
     });
 
     test('should create loaded, not exists', () {
-      expect(DataState.loaded(null), isA<DataStateLoaded>());
-      expect(DataState.loaded(null), isA<DataStateNotExists>());
-      expect(DataState.loaded([]), isA<DataStateLoaded>());
-      expect(DataState.loaded([]), isA<DataStateNotExists>());
+      expect(DataState.loaded(null), isA<DataLoaded>());
+      expect(DataState.loaded(null), isA<DataNotExists>());
+      expect(DataState.loaded([]), isA<DataLoaded>());
+      expect(DataState.loaded([]), isA<DataNotExists>());
     });
   });
 }

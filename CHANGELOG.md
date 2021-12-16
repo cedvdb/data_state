@@ -1,3 +1,7 @@
+## 0.1.0
+
+- [Breaking]: change names from DataStateLoading to DataLoading, DataStateExists to DataExists, etc.
+
 ## 0.0.2
 
 - use factory for loaded
