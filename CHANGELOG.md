@@ -1,3 +1,7 @@
+## 0.1.2
+
+- export changes from 0.1.1
+
 ## 0.1.1
 
 - added DataStream and DataController typedef
