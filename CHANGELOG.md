@@ -1,3 +1,7 @@
+## 0.1.1
+
+- added DataStream and DataController typedef
+
 ## 0.1.0
 
 - [Breaking]: change names from DataStateLoading to DataLoading, DataStateExists to DataExists, etc.
