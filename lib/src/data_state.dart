@@ -1,40 +1,47 @@
 abstract class DataState<T> {
-  T? get data;
   const DataState();
 
-  factory DataState.loaded(T? data) {
+  factory DataState.loaded(T? data, {bool isLoading = false}) {
     if (data == null || (data is List && data.isEmpty)) {
-      return const DataNotExists();
+      return DataNotExists(isLoading: isLoading);
     }
-    return DataExists(data);
+    return DataExists(data, isLoading: isLoading);
   }
 }
 
-class DataLoading<T> extends DataState<T> {
-  @override
-  final T? data;
-  const DataLoading([this.data]);
+/// data not yet loading
+class DataUnset<T> extends DataState<T> {
+  const DataUnset();
 }
 
+/// data is loading
+class DataLoading<T> extends DataState<T> {
+  const DataLoading();
+}
+
+/// error while loading the data
 class DataError<T> extends DataState<T> {
-  @override
   final T? data;
   final Error error;
-  const DataError(this.error, [this.data]);
+  const DataError(this.error, {this.data});
 }
 
 abstract class DataLoaded<T> extends DataState<T> {
+  bool get isLoading;
   const DataLoaded();
 }
 
+/// data has been loaded and is either null or empty list
 class DataNotExists<T> extends DataLoaded<T> {
   @override
-  final T? data = null;
-  const DataNotExists();
+  final bool isLoading;
+  const DataNotExists({this.isLoading = false});
 }
 
+/// data has been loaded and is populated
 class DataExists<T> extends DataLoaded<T> {
-  @override
   final T data;
-  const DataExists(this.data);
+  @override
+  final bool isLoading;
+  const DataExists(this.data, {this.isLoading = false});
 }

@@ -4,7 +4,9 @@ void main() {
   const loading = DataLoading();
   print(loading);
   final loaded = DataState.loaded(3);
-  print(loaded.data);
+  if (loaded is DataExists<int>) {
+    print(loaded.data);
+  }
   print(loaded is DataExists);
   final notExist = DataState.loaded(null);
   final notExistList = DataState.loaded([]);
