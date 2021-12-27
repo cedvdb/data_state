@@ -27,6 +27,8 @@ class DataError<T> extends DataState<T> {
 }
 
 abstract class DataLoaded<T> extends DataState<T> {
+  T? get data;
+
   /// defines whether new data is being loaded
   bool get isUpdating;
   const DataLoaded();
@@ -34,6 +36,7 @@ abstract class DataLoaded<T> extends DataState<T> {
 
 /// data has been loaded and is either null or empty list
 class DataNotExists<T> extends DataLoaded<T> {
+  @override
   final T? data;
   @override
   final bool isUpdating;
@@ -42,6 +45,7 @@ class DataNotExists<T> extends DataLoaded<T> {
 
 /// data has been loaded and is populated
 class DataExists<T> extends DataLoaded<T> {
+  @override
   final T data;
   @override
   final bool isUpdating;
