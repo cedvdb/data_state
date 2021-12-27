@@ -1,8 +1,7 @@
 ## 0.2.0
 - [Breaking] DataLoading no longer has a possible data value
-- added DataUnset which represents data that is not yet loading
-- added isLoading member to DataLoaded, for the cases where there is existing data
-  but we are loading more data
+- added `DataUnset` which represents data that is not yet loading
+- added isUpdating member to DataLoaded, for the cases where there is existing data but we are loading more data (infini scroll) or new data but the old one needs to stay until the new one arrives.
 
 ## 0.1.2
 
