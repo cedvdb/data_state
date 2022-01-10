@@ -1,3 +1,8 @@
+## 1.0.0
+ - solidifying api
+ - remove isUpdating member
+ - loaded factory as `DataLoaded`
+
 ## 0.2.0
 - [Breaking] DataLoading no longer has a possible data value
 - added `DataUnset` which represents data that is not yet loading
